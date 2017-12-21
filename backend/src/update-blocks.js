@@ -4,21 +4,32 @@ const getMissingBlocks = require('./get-missing-blocks');
 const sortBlocks = require('./sort-blocks');
 const stripBlock = require('./strip-block');
 const {log} = require('./helpers');
-const {BLOCKS_IN_CACHE, REFRESH_INTERVAL} = require('./config');
+const {BLOCKS_IN_CACHE, REFRESH_INTERVAL, ACTIVE_TIME} = require('./config');
 
 let blocks = [];
+let lastRequestTime = 0;
 
 async function updateBlocks() {
   const currentBlockNumber = await getCurrentBlockNumber();
   const missingBlocks = await getMissingBlocks(currentBlockNumber, blocks);
-  const strippedMissingBlocks = missingBlocks.map(stripBlock);
+  const strippedMissingBlocks = missingBlocks
+    .filter(Boolean)
+    .map(stripBlock);
   const newBlocks = blocks.concat(strippedMissingBlocks);
 
   sortBlocks(newBlocks);
   blocks = newBlocks.slice(0, BLOCKS_IN_CACHE);
+
+  log('updated blocks: ', blocks.map(b => b.number));
 }
 
 function continuousUpdate() {
+  if (!isActive()) {
+    blocks = [];
+    setTimeout(() => continuousUpdate(), REFRESH_INTERVAL);
+    return;
+  }
+
   updateBlocks()
     .then(() => setTimeout(() => continuousUpdate(), REFRESH_INTERVAL))
     .catch(error => {
@@ -28,5 +39,16 @@ function continuousUpdate() {
 }
 continuousUpdate();
 
-module.exports = () => blocks;
+function setLastRequestTime(time) {
+  lastRequestTime = time;
+}
+
+function isActive() {
+  return (Date.now() - lastRequestTime) < ACTIVE_TIME;
+}
+
+module.exports = {
+  getBlocks: () => blocks,
+  setLastRequestTime
+};
 

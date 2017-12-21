@@ -7,5 +7,6 @@ module.exports = Object.assign({
   BLOCKS_IN_CACHE: 4,
   CONCURRENT_FETCHES: 2,
   REFRESH_INTERVAL: 5000,
-  PORT: 8081
+  PORT: 8081,
+  ACTIVE_TIME: 1000 * 60
 }, config);

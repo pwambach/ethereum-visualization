@@ -1,5 +1,6 @@
 import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 import './chain.css';
+import {loadBlocks} from '../../api';
 
 class Chain extends Component {
   constructor(props) {
@@ -7,6 +8,25 @@ class Chain extends Component {
     this.state = {
       blocks: []
     };
+  }
+
+  componentDidMount() {
+    updateBlocks().then(() => setTimeout(() => this.updateBlocks()));
+  }
+
+  updateBlocks() {
+    const youngestBlock = this.state.blocks[0];
+    const youngestBlockNumbner = youngestBlock ? youngestBlock.number : 0;
+
+    return loadBlocks(youngestBlockNumbner)
+      .then(this.addBlocks);
+  }
+
+  addBlocks(blocks) {
+    const newBlocks = this.state.blocks.concat(blocks);
+    newBlocks.sort((a, b) => b.number - a.number);
+
+    this.setState({blocks: newBlocks});
   }
 
   render() {
