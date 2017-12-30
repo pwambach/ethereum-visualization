@@ -15,6 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/ phil@45.32.154.65:ethereum-visualization/frontend/"
+    "deploy": "npm run build && cp ./package.json ./build/package.json && scp -r ./build/ phil@45.32.154.65:ethereum-visualization/frontend/",
+    "serve": "serve . --port 8080"
   }
 }

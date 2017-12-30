@@ -1,0 +1,75 @@
+@import '../../variables.scss';
+
+.details {
+  position: absolute;
+  margin-top: 28px;
+  transition: top 0.2s ease-out;
+  z-index: 1;
+  color: #999;
+  
+  &__left, &__right {
+    position: absolute;
+  }
+
+  &__left {
+    right: 50%;
+    margin-right: $max-block-width / 2 + 40px;
+    text-align: right;
+  }
+
+  &__right {
+    font-size: 0.75em;
+    left: 50%;
+    margin-left: $max-block-width / 2 + 30px;
+    min-width: 200px;
+    line-height: 1.5;
+  }
+
+  &__blocknumber {
+    font-family: Rajdhani, 'sans serif';
+    font-size: 250%;
+    color: #111;
+  }
+
+  &__timestamp {
+    font-size: 0.75em;
+    white-space: nowrap;
+  }
+
+  &__txaddresses {
+    white-space: nowrap;
+  }
+
+  &__txvalue {
+    font-size: 180%;
+    font-family: Rajdhani, 'sans serif';
+    color: #111;
+    margin: 4px 0;
+  }
+}
+
+.ether {
+  font-family: Roboto, 'sans-serif';
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 900px) {
+  .details {
+    position: fixed;
+    top: auto !important;
+    bottom: 0;
+    width: 100%;
+    height: 10em;
+    background: white;
+    box-shadow: 0px -2px 2px rgba(0,0,0,0.1);
+
+    display: flex;
+    justify-content: space-around;
+
+    &__left, &__right {
+      position: static;
+      margin: 0;
+      text-align: left;
+    }
+  }
+}

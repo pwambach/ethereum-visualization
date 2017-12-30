@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.block {
+  max-width: $max-block-width;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+@media screen and (max-width: 500px) {
+  .block {
+    max-width: none;
+    width: 80%;
+  }
+}
