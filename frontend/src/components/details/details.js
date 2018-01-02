@@ -36,9 +36,10 @@ export default ({top, block, transaction}) =>
         Gas Limit/Price: {transaction.gas} / {toGwei(transaction.gasPrice)} Gwei
       </div>}
 
-      {transaction.input.length > 3 && <div className='details__txinput'>
-        Input: {transaction.input.substr(0, 20)}...
-      </div>}
+      <div className='details__txinput'>
+        Input: {transaction.input.substr(0, 20)}
+        {transaction.input.length > 20 && '...'}
+      </div>
 
     </div>}
   </div>;

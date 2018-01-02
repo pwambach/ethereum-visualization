@@ -83,6 +83,7 @@ class Chain extends Component {
       selectedBlockHash,
       selectedTxHash
     } = this.state;
+    const {squeezed} = this.props;
     const selectedBlock = selectedBlockHash &&
       this.getSelectedBlock(selectedBlockHash);
     const selectedTransaction = selectedBlock && selectedTxHash &&
@@ -93,7 +94,7 @@ class Chain extends Component {
     }
 
     return (
-      <div className="chain"
+      <div className={`chain ${squeezed ? 'chain--squeezed' : ''}`}
         style={{marginTop: CHAIN_MARGIN_TOP}}>
 
         {selectedBlock && <Details top={selectedBlockTop}

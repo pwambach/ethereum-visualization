@@ -11,11 +11,15 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start": "react-scripts start",
+    "scripts:start": "react-scripts start",
+    "start": "npm-run-all --parallel watch-css scripts:start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build && cp ./package.json ./build/package.json && scp -r ./build/ phil@45.32.154.65:ethereum-visualization/frontend/",
     "serve": "serve . --port 8080"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
   }
 }
