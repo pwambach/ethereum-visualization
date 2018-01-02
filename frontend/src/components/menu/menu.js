@@ -1,5 +1,6 @@
 import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 import './menu.css';
+import MenuIcon from '../menu-icon/menu-icon';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -15,13 +16,11 @@ export default class Menu extends Component {
     const classes = `menu ${menu ? 'menu--open' : ''}`;
 
     return <div className={classes}>
-      <button className="menu__button"
+      <MenuIcon open={menu}
         onClick={() => {
           this.setState({menu: !menu});
           onToggle(!menu);
-        }}>
-        {menu ? 'open' : 'close'}
-      </button>
+        }} />
       <div className='menu__content'>hello</div>
     </div>;
   }
