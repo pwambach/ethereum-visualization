@@ -13,7 +13,7 @@
 
   @for $i from 1 through 400 {
     &:nth-child(#{$i}) {
-      transition-delay: $i * 0.01s
+      transition-delay: $i * 0.005s
     }
   }
 }

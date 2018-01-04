@@ -90,7 +90,7 @@ class Chain extends Component {
       this.getSelectedTransaction(selectedBlock, selectedTxHash);
 
     if (blocks.length === 0) {
-      return <div className="chain-loading">loading blocks ...</div>;
+      return <div className="chain-loading" />;
     }
 
     return (

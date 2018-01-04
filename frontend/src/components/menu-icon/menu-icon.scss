@@ -1,11 +1,18 @@
 .menu-icon {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  transform: translateX(100%);
   width: 20px;
   height: 20px;
-  position: relative;
   margin: 10px;
-  transform: rotate(0deg);
   transition: .6s ease-in-out;
   cursor: pointer;
+
+  &:hover {
+    transform: translateX(110%);
+    transition: .15s ease-in;
+  }
 
   span {
     display: block;

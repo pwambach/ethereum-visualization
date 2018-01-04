@@ -1,0 +1,17 @@
+<svg width="40" height="18" viewBox="-2 -2 38 12" xmlns="http://www.w3.org/2000/svg" fill="#000">
+    <rect width="10" height="10" x="0" y="0" style="transform-origin: 50% 50%">
+        <animateTransform repeatCount="indefinite"
+        attributeName="transform" type="scale"
+        values="1;1.5;1;1;1;1" begin="0" dur="1s" />
+    </rect>
+    <rect width="10" height="10" x="14" y="0" style="transform-origin: 50% 50%">
+        <animateTransform repeatCount="indefinite"
+        attributeName="transform" type="scale"
+        values="1;1.5;1;1;1;1" begin="150ms" dur="1s" />
+    </rect>
+    <rect width="10" height="10" x="28" y="0" style="transform-origin: 50% 50%">
+        <animateTransform repeatCount="indefinite"
+        attributeName="transform" type="scale"
+        values="1;1.5;1;1;1;1" begin="300ms" dur="1s" />
+    </rect>
+</svg>

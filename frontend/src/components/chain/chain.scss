@@ -14,8 +14,10 @@
 
 .chain-loading {
   position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #999;
+  width: 40px;
+  height: 18px;
+  top: 49%;
+  left: 50%;
+  margin-left: -20px;
+  background-image: url('loader.svg');
 }
