@@ -83,18 +83,25 @@ class Chain extends Component {
       selectedBlockHash,
       selectedTxHash
     } = this.state;
-    const {squeezed} = this.props;
-    const selectedBlock = selectedBlockHash &&
-      this.getSelectedBlock(selectedBlockHash);
-    const selectedTransaction = selectedBlock && selectedTxHash &&
-      this.getSelectedTransaction(selectedBlock, selectedTxHash);
 
     if (blocks.length === 0) {
       return <div className="chain-loading" />;
     }
 
+    const {squeezed, options} = this.props;
+    const selectedBlock = selectedBlockHash &&
+      this.getSelectedBlock(selectedBlockHash);
+    const selectedTransaction = selectedBlock && selectedTxHash &&
+      this.getSelectedTransaction(selectedBlock, selectedTxHash);
+    const classes = [
+      'chain',
+      squeezed && 'chain--squeezed',
+      options.contractCalls && 'chain--contract-calls',
+      options.contractCreates && 'chain--contract-creates'
+    ].filter(Boolean).join(' ');
+
     return (
-      <div className={`chain ${squeezed ? 'chain--squeezed' : ''}`}
+      <div className={classes}
         style={{marginTop: CHAIN_MARGIN_TOP}}>
 
         {selectedBlock && <Details top={selectedBlockTop}

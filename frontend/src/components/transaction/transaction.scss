@@ -3,7 +3,7 @@
   height: 10px;
   margin: 0.5px;
   background-color: gray;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out, background-color 0.1s ease-out;
   opacity: 1;
 
   &:hover {
@@ -27,4 +27,16 @@
 
 .block--new .transaction {
   opacity: 0;
+}
+
+.chain--contract-calls {
+  .transaction.transaction--input {
+    background-color: #15ef26 !important;
+  }
+}
+
+.chain--contract-creates {
+  .transaction.transaction--create {
+    background-color: #ffa701 !important;
+  }
 }

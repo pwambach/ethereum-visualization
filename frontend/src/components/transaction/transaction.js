@@ -4,11 +4,12 @@ import {gweiToEther} from '../../helper';
 import {TX_BLACK_ETHER} from '../../config';
 
 export default ({data, onSelect, onClick}) => {
-  const {input, hash, value} = data;
+  const {input, hash, value, to} = data;
   const hasInput = input.length > 3;
   const classes = [
     'transaction',
-    hasInput && 'transaction--input'
+    hasInput && 'transaction--input',
+    !to && 'transaction--create'
   ].filter(Boolean).join(' ');
 
   const etherValue = Math.min(gweiToEther(value), TX_BLACK_ETHER);
