@@ -1,0 +1,23 @@
+.mdl-radio {
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+  .mdl-radio__label {
+    padding-left: 18px;
+  }
+
+  .mdl-radio__outer-circle {
+    border-color: #888;
+  }
+
+  &.is-checked {
+    .mdl-radio__outer-circle {
+      border-color: #ccc;
+    }
+
+    .mdl-radio__inner-circle {
+      background-color: #fafafa;
+    }
+  }
+}

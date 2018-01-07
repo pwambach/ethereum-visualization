@@ -22,13 +22,29 @@
   }
 
   &__content {
-    margin-top: 100px;
-    padding: 20px;
+    margin-top: 70px;
+    padding: 20px 20px 20px 30px;
     color: #eee;
   }
 
+  .menu-heading {
+    color: #999;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .examples {
+    margin-left: 54px;
+    font-size: 0.9em;
+    color: #888;
+
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
   footer {
-    opacity: 0.7;
     font-size: 0.7em;
     position: absolute;
     bottom: 0;
@@ -41,26 +57,46 @@
     .logos {
       display: flex;
       justify-content: center;
-      padding: 10px 0;
-      
-      div {
-        width: 20px;
-        height: 20px;
-        background: white;
+      margin-bottom: 20px;
 
-        &:first-child {
-          margin-right: 10px;
+      a {
+        width: 24px;
+        height: 24px;
+        display: block;
+
+        &.github {
+          background-image: url('github.svg');
+          margin-right: 15px;
+        }
+  
+        &.twitter {
+          background-image: url('twitter.svg');
         }
       }
     }
 
     .attributions {
-      color: #999;
+      color: #777;
     }
 
     a {
       text-decoration: none;
-      color: #bbb;
+      color: #999;
     }
+  }
+
+  input[type="text"] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: #222;
+    padding: 8px;
+    padding-left: 3px;
+    margin: 4px;
+    margin-left: 52px;
+    width: 160px;
+    color: #eee;
+    border-bottom: 1px solid #555;
   }
 }

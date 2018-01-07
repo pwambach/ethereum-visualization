@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.mdl-switch {
+  margin-bottom: 10px;
+
+  &__track, &.is-checked &__track {
+    background-color: #111;
+  }
+
+  &--calls.is-checked {
+    .mdl-switch__thumb {
+      background-color: $transaction-contract-call;
+    }
+  }
+
+  &--creations.is-checked {
+    .mdl-switch__thumb {
+      background-color: $transaction-contract-create;
+    }
+  }
+
+  &--from.is-checked {
+    .mdl-switch__thumb {
+      background-color: $transaction-from;
+    }
+  }
+
+  &--to.is-checked {
+    .mdl-switch__thumb {
+      background-color: $transaction-to;
+    }
+  }
+}

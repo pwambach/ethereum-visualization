@@ -3,13 +3,15 @@ import './transaction.css';
 import {gweiToEther} from '../../helper';
 import {TX_BLACK_ETHER} from '../../config';
 
-export default ({data, onSelect, onClick}) => {
-  const {input, hash, value, to} = data;
+export default ({data, onSelect, onClick, fromHighlight, toHighlight}) => {
+  const {input, hash, value, to, from} = data;
   const hasInput = input.length > 3;
   const classes = [
     'transaction',
     hasInput && 'transaction--input',
-    !to && 'transaction--create'
+    !to && 'transaction--create',
+    fromHighlight === from && 'transaction--from',
+    toHighlight === to && 'transaction--to'
   ].filter(Boolean).join(' ');
 
   const etherValue = Math.min(gweiToEther(value), TX_BLACK_ETHER);

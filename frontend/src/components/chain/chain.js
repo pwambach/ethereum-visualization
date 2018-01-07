@@ -111,6 +111,9 @@ class Chain extends Component {
         {blocks.map(block => <Block
           data={block}
           key={block.number}
+          sortOrder={options.sortOrder}
+          fromHighlight={options.fromAddress}
+          toHighlight={options.toAddress}
           onBlockSelect={data => this.setSelectedBlock(data)}
           onTransactionClick={hash => this.handleTransactionClick(hash)}
           onTransactionSelect={hash => this.setSelectedTransaction(hash)} />)}

@@ -2,7 +2,7 @@
 
 .details {
   position: absolute;
-  margin-top: 28px;
+  margin-top: 34px;
   transition: top 0.2s ease-out;
   z-index: 1;
   color: #999;
@@ -21,6 +21,7 @@
     font-size: 0.75em;
     left: 50%;
     margin-left: $max-block-width / 2 + 30px;
+    margin-top: -8px;
     min-width: 200px;
     line-height: 1.5;
   }
@@ -44,7 +45,7 @@
     font-size: 180%;
     font-family: Rajdhani, 'sans serif';
     color: #111;
-    margin: 4px 0;
+    margin-bottom: 4px;
   }
 }
 

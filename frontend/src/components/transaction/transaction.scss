@@ -1,9 +1,11 @@
+@import '../../variables.scss';
+
 .transaction {
   width: 10px;
   height: 10px;
   margin: 0.5px;
   background-color: gray;
-  transition: opacity 0.5s ease-out, background-color 0.1s ease-out;
+  transition: opacity 0.5s ease-out, background-color 0.25s linear;
   opacity: 1;
 
   &:hover {
@@ -13,7 +15,7 @@
 
   @for $i from 1 through 400 {
     &:nth-child(#{$i}) {
-      transition-delay: $i * 0.005s
+      transition-delay: $i * 0.003s
     }
   }
 }
@@ -31,12 +33,20 @@
 
 .chain--contract-calls {
   .transaction.transaction--input {
-    background-color: #15ef26 !important;
+    background-color: $transaction-contract-call !important;
   }
 }
 
 .chain--contract-creates {
   .transaction.transaction--create {
-    background-color: #ffa701 !important;
+    background-color: $transaction-contract-create !important;
   }
+}
+
+.transaction.transaction--from {
+  background-color: $transaction-from !important;
+}
+
+.transaction.transaction--to {
+  background-color: $transaction-to !important;
 }
