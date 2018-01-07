@@ -11,7 +11,10 @@ let lastRequestTime = 0;
 
 async function updateBlocks() {
   const currentBlockNumber = await getCurrentBlockNumber();
+
+  log('[DEBUG] current block number: ', currentBlockNumber);
   const missingBlocks = await getMissingBlocks(currentBlockNumber, blocks);
+
   const strippedMissingBlocks = missingBlocks
     .filter(Boolean)
     .map(stripBlock);
@@ -20,7 +23,9 @@ async function updateBlocks() {
   sortBlocks(newBlocks);
   blocks = newBlocks.slice(0, BLOCKS_IN_CACHE);
 
-  log('updated blocks: ', blocks.map(b => b.number));
+  if (missingBlocks.length) {
+    log('[DEBUG] updated blocks: ', blocks.map(b => b.number));
+  }
 }
 
 function continuousUpdate() {
@@ -33,7 +38,7 @@ function continuousUpdate() {
   updateBlocks()
     .then(() => setTimeout(() => continuousUpdate(), REFRESH_INTERVAL))
     .catch(error => {
-      log('Update Blocks Error: ', error);
+      log('[DEBUG]: update block error: ', error);
       setTimeout(() => continuousUpdate(), REFRESH_INTERVAL);
     });
 }
