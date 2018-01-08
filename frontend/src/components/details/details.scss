@@ -6,6 +6,10 @@
   transition: top 0.2s ease-out;
   z-index: 1;
   color: #999;
+
+  &--squeezed {
+    margin-top: 15px;
+  }
   
   &__left, &__right {
     position: absolute;
@@ -65,12 +69,20 @@
     box-shadow: 0px -2px 2px rgba(0,0,0,0.1);
 
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 
     &__left, &__right {
       position: static;
       margin: 0;
       text-align: left;
+    }
+
+    &__left {
+      margin: 20px 20px 0 20px;
+    }
+
+    &__right {
+      margin-top: 10px;
     }
   }
 }

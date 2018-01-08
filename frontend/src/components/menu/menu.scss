@@ -64,9 +64,12 @@
         height: 24px;
         display: block;
 
+        &:first-child {
+          margin-right: 15px;
+        }
+
         &.github {
           background-image: url('github.svg');
-          margin-right: 15px;
         }
   
         &.twitter {
@@ -98,5 +101,11 @@
     width: 160px;
     color: #eee;
     border-bottom: 1px solid #555;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .menu__content {
+    margin-top: 0px;
   }
 }

@@ -8,8 +8,8 @@ export default ({data, onSelect, onClick, fromHighlight, toHighlight}) => {
   const hasInput = input.length > 3;
   const classes = [
     'transaction',
-    hasInput && 'transaction--input',
-    !to && 'transaction--create',
+    hasInput && !(toHighlight === to) && 'transaction--input',
+    !to && !(fromHighlight === from) && 'transaction--create',
     fromHighlight === from && 'transaction--from',
     toHighlight === to && 'transaction--to'
   ].filter(Boolean).join(' ');

@@ -92,8 +92,8 @@ export default class Menu extends Component {
           // <div>made by <a href="test">@phil_osophie</a> - open source on <a href="cdf">github</a></div>
         }
         <div className="logos">
-          <a href="https://github.com/pwambach/ethereum-visualization" className="github" />
           <a href="https://twitter.com/phil_osophie" className="twitter" />
+          <a href="https://github.com/pwambach/ethereum-visualization" className="github" />
         </div>
 
         <br />

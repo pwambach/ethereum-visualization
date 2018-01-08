@@ -104,7 +104,9 @@ class Chain extends Component {
       <div className={classes}
         style={{marginTop: CHAIN_MARGIN_TOP}}>
 
-        {selectedBlock && <Details top={selectedBlockTop}
+        {selectedBlock && <Details
+          className={squeezed ? 'details--squeezed' : ''}
+          top={selectedBlockTop}
           block={selectedBlock}
           transaction={selectedTransaction} />}
 

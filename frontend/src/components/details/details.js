@@ -2,8 +2,8 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import './details.css';
 import {gweiToEther, ellipsedHash, toGwei} from '../../helper';
 
-export default ({top, block, transaction}) =>
-  <div className='details'
+export default ({top, block, transaction, className = ''}) =>
+  <div className={`details ${className}`}
     style={{top}}>
     {block && <div className='details__left'>
       <div className='details__blocknumber'>{block.number}</div>
@@ -23,7 +23,11 @@ export default ({top, block, transaction}) =>
 
       {/** has to address */}
       {transaction.to && <div className='details__txaddresses'>
-        FromTo: {ellipsedHash(transaction.from)} -> {ellipsedHash(transaction.to)}
+        From: {ellipsedHash(transaction.from)}
+      </div>}
+
+      {transaction.to && <div className='details__txaddresses'>
+        To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ellipsedHash(transaction.to)}
       </div>}
 
       {/** no to address */}
@@ -33,7 +37,8 @@ export default ({top, block, transaction}) =>
 
       {/** no to address */}
       {<div className='details__txgas'>
-        Gas Limit/Price: {transaction.gas} / {toGwei(transaction.gasPrice)} Gwei
+        Gas Limit: {transaction.gas} <br />
+        Price: {toGwei(transaction.gasPrice)} Gwei
       </div>}
 
       <div className='details__txinput'>
