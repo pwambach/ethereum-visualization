@@ -1,12 +1,11 @@
 {
   "name": "ethereum-visualization",
-  "version": "0.1.0",
-  "private": true,
+  "author": "@phil_osophie",
+  "version": "1.0.0",
   "dependencies": {
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "morgan": "^1.9.0",
-    "node-sass-chokidar": "0.0.3",
     "p-queue": "^2.3.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -26,6 +25,7 @@
   "devDependencies": {
     "babel-eslint": "^8.0.3",
     "eslint": "^4.13.1",
+    "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.10.2"
   }
