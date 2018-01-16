@@ -1,6 +1,8 @@
 # Etherview
 
-A graphical explorer for the Ethereum Blockchain.
+A graphical Explorer for the Ethereum Blockchain.
+
+![](https://user-images.githubusercontent.com/1611635/35013888-279cf822-fb0f-11e7-8145-66258e65d31e.png)
 
 ## Server
 
