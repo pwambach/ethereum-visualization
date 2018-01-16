@@ -1,0 +1,25 @@
+{
+  "short_name": "EtherView",
+  "name": "Ethereum Blockschain Visualization",
+  "icons": [
+    {
+      "src": "./icon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
