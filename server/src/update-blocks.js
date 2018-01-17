@@ -4,13 +4,19 @@ const getMissingBlocks = require('./get-missing-blocks');
 const sortBlocks = require('./sort-blocks');
 const stripBlock = require('./strip-block');
 const {log} = require('./helpers');
-const {BLOCKS_IN_CACHE, REFRESH_INTERVAL, ACTIVE_TIME} = require('../config');
+const {
+  BLOCKS_IN_CACHE,
+  REFRESH_INTERVAL,
+  ACTIVE_TIME,
+  BLOCK_CONFIRMATIONS
+} = require('../config');
 
 let blocks = [];
 let lastRequestTime = 0;
 
 async function updateBlocks() {
-  const currentBlockNumber = await getCurrentBlockNumber();
+  const currentBlockNumber =
+    (await getCurrentBlockNumber()) - BLOCK_CONFIRMATIONS;
 
   log('[DEBUG] current block number: ', currentBlockNumber);
   const missingBlocks = await getMissingBlocks(currentBlockNumber, blocks);

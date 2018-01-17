@@ -12,21 +12,12 @@ Build with React - bootstrapped with [Create React App](https://github.com/faceb
 
 ## Develop
 
-with etherview.now.sh server:
-
-```
-npm i
-npm start
-```
-
 with local server:
 
-change `BASE_URL` in `src/config.js` to `http://localhost:3000`
-
 ```
 npm i
+API_KEY=XYZ node server/server.js
 npm start
-npm now start
 ```
 
 ## Contribute

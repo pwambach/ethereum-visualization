@@ -5,5 +5,6 @@ module.exports = {
   CONCURRENT_FETCHES: 2,
   REFRESH_INTERVAL: 5000,
   PORT: 8081,
-  ACTIVE_TIME: 1000 * 60
+  ACTIVE_TIME: 1000 * 60,
+  BLOCK_CONFIRMATIONS: 5 // y is current block -> fetch y - BLOCK_CONFIRMATIONS
 };
