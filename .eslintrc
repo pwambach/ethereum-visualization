@@ -89,7 +89,7 @@
     "array-callback-return": 2,
     "no-var": 2,
     "block-scoped-var": 2,
-    "complexity": [1, 7],
+    "complexity": [0, 7],
     "consistent-return": 2,
     "curly": [2, "all"],
     "default-case": 0,

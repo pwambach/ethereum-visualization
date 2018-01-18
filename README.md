@@ -4,9 +4,11 @@ A graphical Explorer for the Ethereum Blockchain.
 
 ![](https://user-images.githubusercontent.com/1611635/35013888-279cf822-fb0f-11e7-8145-66258e65d31e.png)
 
+**Note: This project is a very simple visualization of the Ethereum Blockchain. It does not include things like uncles and internal contract message calls. Also there is absolutely no guarantee that the data shown here is correct!**
+
 ## Server
 
-A tiny node.js express server which loads and caches the last x blocks. To avoid calling the [etherscan.io](https://etherscan.io) API to often the server stops pulling blocks when there are no new incoming client requests.
+The project includes a tiny node.js express server which loads and caches the last x blocks. To avoid calling the [etherscan.io](https://etherscan.io) API to often the server stops pulling blocks when there are no new incoming client requests.
 
 ## Frontend
 

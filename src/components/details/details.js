@@ -1,6 +1,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import './details.css';
-import {gweiToEther, ellipsedHash, toGwei} from '../../helper';
+import {gweiToEther, ellipsedHash, toGwei, isMobile} from '../../helper';
+import {ETHERSCAN_BASE_URL} from '../../config';
 
 export default ({top, block, transaction, className = ''}) => (
   <div className={`details ${className}`} style={{top}}>
@@ -23,7 +24,13 @@ export default ({top, block, transaction, className = ''}) => (
         }
 
         <div className="details__txhash">
-          Hash: {ellipsedHash(transaction.hash)}
+          Hash: {isMobile() ?
+            <a target="_blank"
+              href={`${ETHERSCAN_BASE_URL}/tx/${transaction.hash}`}>
+              {ellipsedHash(transaction.hash)}
+            </a> :
+            ellipsedHash(transaction.hash)
+          }
         </div>
 
         {/** has to address */}

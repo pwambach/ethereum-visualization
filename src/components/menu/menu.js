@@ -42,7 +42,7 @@ export default class Menu extends Component {
           <div className="menu-heading">Highlight</div>
 
           <Toggle
-            label="Contract Calls"
+            label="Contract Executions"
             cssClasses="mdl-switch--calls"
             checked={contractCalls}
             onChange={() => this.setOption({contractCalls: !contractCalls})}

@@ -44,10 +44,18 @@ class Chain extends Component {
   }
 
   setSelectedTransaction(hash) {
+    if (isMobile() && hash === null) {
+      return;
+    }
+
     this.setState({selectedTxHash: hash});
   }
 
   setSelectedBlock(data) {
+    if (isMobile() && data === null) {
+      return;
+    }
+
     if (data === null) {
       this.setState({selectedBlockHash: null});
       return;
