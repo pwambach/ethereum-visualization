@@ -7,9 +7,9 @@ function stripBlock(block) {
     gas: getDecimalFromHex(tx.gas),
     gasPrice: getDecimalFromHex(tx.gasPrice),
     hash: tx.hash,
-    input: `${tx.input.substr(0, 20)}...`,
+    input: `${tx.input.length > 2 ? tx.input.substr(0, 20) + '...' : tx.input}`,
     to: tx.to,
-    transactionIndex: getDecimalFromHex(tx.transactionIndex),
+    i: getDecimalFromHex(tx.transactionIndex),
     value: getDecimalFromHex(tx.value)
   }));
 
