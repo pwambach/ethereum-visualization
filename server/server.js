@@ -9,7 +9,7 @@ const {PORT} = require('./config');
 app.use(
   morgan(
     '[:date[clf]] :method :url :status :res[content-length] bytes - :response-time ms',
-    {skip: req => req.query.last}
+    {skip: req => req.query.last || !req.url.includes('api')}
   )
 ); // eslint-disable-line
 

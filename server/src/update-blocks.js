@@ -18,7 +18,6 @@ async function updateBlocks() {
   const currentBlockNumber =
     (await getCurrentBlockNumber()) - BLOCK_CONFIRMATIONS;
 
-  log('[DEBUG] current block number: ', currentBlockNumber);
   const missingBlocks = await getMissingBlocks(currentBlockNumber, blocks);
 
   const strippedMissingBlocks = missingBlocks.filter(Boolean).map(stripBlock);
