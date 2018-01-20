@@ -2,7 +2,7 @@
   position: absolute;
   top: 14px;
   right: 0;
-  transform: translateX(100%);
+  transform: translateX(280%);
   width: 20px;
   height: 20px;
   margin: 10px;
@@ -10,8 +10,20 @@
   cursor: pointer;
 
   &:hover {
-    transform: translateX(110%);
     transition: .15s ease-in;
+
+    span {
+      animation-duration: 0.25s;
+      animation-name: shake;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 0.05s;
+    }
+
+    span:nth-child(3) {
+      animation-delay: 0.1s;
+    }
   }
 
   span {
@@ -29,6 +41,13 @@
   &--open {
     span {
       background: white;
+      animation: none !important;
+    }
+  }
+
+  &--closing {
+    span {
+      animation: none !important;
     }
   }
 }
@@ -59,4 +78,18 @@
 .menu-icon--open span:nth-child(3) {
   top: 12px;
   transform: rotate(-135deg);
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px)
+  }
+
+  50% {
+    transform: translateX(5px)
+  }
+
+  100% {
+    transform: translateX(0px)
+  }
 }
