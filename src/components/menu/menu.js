@@ -121,6 +121,9 @@ export default class Menu extends Component {
 
           <br />
           <div className="attributions">
+            ETH: 0x33fC520429f355A1348fEF631136C9C22d0e764c
+            <br />
+            <br />
             Powered by <a href="https://etherscan.io">Etherscan.io</a> APIs
           </div>
         </footer>

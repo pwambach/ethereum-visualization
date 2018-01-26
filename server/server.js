@@ -2,26 +2,22 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const {getBlocks, setLastRequestTime} = require('./src/update-blocks');
-const path = require('path');
 const cors = require('./src/cors');
-const {PORT} = require('./config');
+const {PORT, API_KEY} = require('./config');
 
 app.use(
   morgan(
-    '[:date[clf]] :method :url :status :res[content-length] bytes - :response-time ms',
-    {skip: req => req.query.last || !req.url.includes('api')}
+    '[:date[clf]] :remote-addr :method :url :status :res[content-length] bytes - :response-time ms - :user-agent',
+    {skip: req => !req.url.includes('blocks')}
   )
 ); // eslint-disable-line
 
-app.use(express.static(path.resolve(__dirname, '../build/')));
-
-if (process.env.NODE_ENV !== 'production') {
-  app.use(cors);
-}
-
+app.use(cors);
 app.disable('etag');
 
-app.get('/api/blocks', (req, res) => {
+app.get('/', (req, res) => res.sendStatus(404));
+
+app.get('/blocks', (req, res) => {
   const lastNumber = parseInt(req.query.last, 10);
   const blocks = getBlocks();
 
@@ -38,4 +34,5 @@ app.get('/api/blocks', (req, res) => {
 });
 
 console.log(`Listening on port ${PORT}`);
+console.log(`Using API KEY: ${API_KEY}`);
 app.listen(PORT);
