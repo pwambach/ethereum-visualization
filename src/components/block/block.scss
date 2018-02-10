@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .block {
-  max-width: $max-block-width;
+  width: $max-block-width;
   padding: 10px;
   display: flex;
   flex-wrap: wrap-reverse;

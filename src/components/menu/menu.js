@@ -2,8 +2,9 @@ import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 import './menu.css';
 import MenuIcon from '../menu-icon/menu-icon';
 import Toggle from '../toggle/toggle';
-import ToggleText from '../toggle-text/toggle-text';
 import RadioGroup from '../radio-group/radio-group';
+import ExampleSelect from '../example-select/example-select';
+import {FROM_EXAMPLES, TO_EXAMPLES} from '../../config';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -23,9 +24,7 @@ export default class Menu extends Component {
     const {
       contractCalls,
       contractCreates,
-      sortOrder,
-      fromAddress,
-      toAddress
+      sortOrder
     } = options;
     const classes = `menu ${menu ? 'menu--open' : ''}`;
 
@@ -55,43 +54,21 @@ export default class Menu extends Component {
             onChange={() => this.setOption({contractCreates: !contractCreates})}
           />
 
-          <ToggleText
-            value={fromAddress}
-            cssClasses="mdl-switch--from"
-            placeholder="From"
-            onChange={value =>
-              this.setOption({fromAddress: value.toLowerCase()})
-            }
-          />
+          <ExampleSelect placeholder="From"
+            examples={FROM_EXAMPLES}
+            identifier="from"
+            onChange={({value, color}) => this.setOption({
+              fromAddress: value,
+              fromColor: color
+            })}/>
 
-          <ToggleText
-            value={toAddress}
-            cssClasses="mdl-switch--to"
-            placeholder="To"
-            onChange={value => this.setOption({toAddress: value.toLowerCase()})}
-          />
-
-          <div className="examples">
-            e.g.&nbsp;
-            <span
-              onClick={() =>
-                this.setOption({
-                  toAddress: '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0'
-                })
-              }
-            >
-              EOS
-            </span>,&nbsp;
-            <span
-              onClick={() =>
-                this.setOption({
-                  toAddress: '0x06012c8cf97bead5deae237070f9587f8e7a266d'
-                })
-              }
-            >
-              CryptoKittiesCore
-            </span>
-          </div>
+          <ExampleSelect placeholder="To"
+            examples={TO_EXAMPLES}
+            identifier="to"
+            onChange={({value, color}) => this.setOption({
+              toAddress: value,
+              toColor: color
+            })}/>
 
           <div className="menu-heading">Sort by</div>
 
@@ -106,6 +83,7 @@ export default class Menu extends Component {
             ]}
             onChange={value => this.setOption({sortOrder: value})}
           />
+
         </div>
         <footer>
           {
@@ -121,7 +99,7 @@ export default class Menu extends Component {
 
           <br />
           <div className="attributions">
-            ETH: 0x33fC520429f355A1348fEF631136C9C22d0e764c
+            Donations: <br />ETH 0x33fC520429f355A1348fEF631136C9C22d0e764c
             <br />
             <br />
             Powered by <a href="https://etherscan.io">Etherscan.io</a> APIs

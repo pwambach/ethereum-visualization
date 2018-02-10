@@ -20,7 +20,8 @@ class Chain extends Component {
       this.props.data !== nextProps.data ||
       this.props.sortOrder !== nextProps.sortOrder ||
       this.props.fromHighlight !== nextProps.fromHighlight ||
-      this.props.toHighlight !== nextProps.toHighlight
+      this.props.fromColor !== nextProps.fromColor ||
+      this.props.toColor !== nextProps.toColor
     );
   }
 
@@ -43,7 +44,9 @@ class Chain extends Component {
       onTransactionClick,
       sortOrder,
       fromHighlight,
-      toHighlight
+      fromColor,
+      toHighlight,
+      toColor
     } = this.props;
     const {transactions} = data;
     const {isNew} = this.state;
@@ -65,7 +68,9 @@ class Chain extends Component {
             data={tx}
             key={tx.hash}
             fromHighlight={fromHighlight}
+            fromColor={fromColor}
             toHighlight={toHighlight}
+            toColor={toColor}
             onClick={txHash => onTransactionClick(txHash)}
             onSelect={txHash => onTransactionSelect(txHash)}
           />

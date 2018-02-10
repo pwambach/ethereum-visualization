@@ -3,22 +3,38 @@ import './transaction.css';
 import {gweiToEther} from '../../helper';
 import {TX_BLACK_ETHER} from '../../config';
 
-export default ({data, onSelect, onClick, fromHighlight, toHighlight}) => {
+export default ({
+  data,
+  onSelect,
+  onClick,
+  fromHighlight,
+  fromColor,
+  toHighlight,
+  toColor
+}) => {
   const {input, hash, value, to, from} = data;
   const hasInput = input.length > 3;
+  const isFrom = fromHighlight === from;
+  const isTo = toHighlight === to;
+  const etherValue = Math.min(gweiToEther(value), TX_BLACK_ETHER);
+  const luminance = Math.max(8, Math.round(etherValue / TX_BLACK_ETHER * 100));
+  let color = `hsla(1, 0%, ${100 - luminance}%, 1)`;
+
+  if (isFrom) {
+    color = fromColor;
+  }
+
+  if (isTo) {
+    color = toColor;
+  }
+
   const classes = [
     'transaction',
-    hasInput && !(toHighlight === to) && 'transaction--input',
-    !to && !(fromHighlight === from) && 'transaction--create',
-    fromHighlight === from && 'transaction--from',
-    toHighlight === to && 'transaction--to'
+    hasInput && 'transaction--input',
+    !to && 'transaction--create'
   ]
     .filter(Boolean)
     .join(' ');
-
-  const etherValue = Math.min(gweiToEther(value), TX_BLACK_ETHER);
-  const luminance = Math.max(8, Math.round(etherValue / TX_BLACK_ETHER * 100));
-  const color = `hsla(1, 0%, ${100 - luminance}%, 1)`;
 
   return (
     <div

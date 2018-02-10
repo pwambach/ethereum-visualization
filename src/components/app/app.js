@@ -22,6 +22,20 @@ class App extends Component {
           onChange={options => this.setState({options})}
         />
         <Chain squeezed={this.state.isMenuOpen} options={this.state.options} />
+
+        <style>{`
+          .example-select--from
+          .mdl-switch.is-checked
+          .mdl-switch__thumb {
+            background-color: ${this.state.options.fromColor}
+          }
+
+          .example-select--to
+          .mdl-switch.is-checked
+          .mdl-switch__thumb {
+            background-color: ${this.state.options.toColor}
+          }
+        `}</style>
       </div>
     );
   }

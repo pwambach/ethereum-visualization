@@ -129,7 +129,9 @@ class Chain extends Component {
             key={block.number}
             sortOrder={options.sortOrder}
             fromHighlight={options.fromAddress}
+            fromColor={options.fromColor}
             toHighlight={options.toAddress}
+            toColor={options.toColor}
             onBlockSelect={data => this.setSelectedBlock(data)}
             onTransactionClick={hash => this.handleTransactionClick(hash)}
             onTransactionSelect={hash => this.setSelectedTransaction(hash)}
