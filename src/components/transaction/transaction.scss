@@ -43,14 +43,6 @@
   }
 }
 
-.transaction.transaction--from {
-  background-color: $transaction-from !important;
-}
-
-.transaction.transaction--to {
-  background-color: $transaction-to !important;
-}
-
 .chain--decentraland .transaction.transaction--to {
   background-color: #E68346 !important;
 }

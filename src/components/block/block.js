@@ -21,6 +21,7 @@ class Chain extends Component {
       this.props.sortOrder !== nextProps.sortOrder ||
       this.props.fromHighlight !== nextProps.fromHighlight ||
       this.props.fromColor !== nextProps.fromColor ||
+      this.props.toHighlight !== nextProps.toHighlight ||
       this.props.toColor !== nextProps.toColor
     );
   }

@@ -90,6 +90,14 @@
 }
 
 @media screen and (max-width: 900px) {
+  .menu footer {
+    position: static;
+
+    .logos {
+      margin-bottom: 4px;
+    }
+  }
+
   .menu__content {
     margin-top: 0px;
   }

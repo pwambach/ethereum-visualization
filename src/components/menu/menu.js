@@ -4,7 +4,12 @@ import MenuIcon from '../menu-icon/menu-icon';
 import Toggle from '../toggle/toggle';
 import RadioGroup from '../radio-group/radio-group';
 import ExampleSelect from '../example-select/example-select';
-import {FROM_EXAMPLES, TO_EXAMPLES} from '../../config';
+import {
+  FROM_DEFAULT_COLOR,
+  FROM_EXAMPLES,
+  TO_DEFAULT_COLOR,
+  TO_EXAMPLES
+} from '../../config';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -57,6 +62,7 @@ export default class Menu extends Component {
           <ExampleSelect placeholder="From"
             examples={FROM_EXAMPLES}
             identifier="from"
+            defaultColor={FROM_DEFAULT_COLOR}
             onChange={({value, color}) => this.setOption({
               fromAddress: value,
               fromColor: color
@@ -65,6 +71,7 @@ export default class Menu extends Component {
           <ExampleSelect placeholder="To"
             examples={TO_EXAMPLES}
             identifier="to"
+            defaultColor={TO_DEFAULT_COLOR}
             onChange={({value, color}) => this.setOption({
               toAddress: value,
               toColor: color

@@ -40,9 +40,13 @@ export default class ExampleSelect extends Component {
   }
 
   onChange = (event, {newValue}) => {
-    const {examples, onChange} = this.props;
+    const {examples, onChange, defaultColor} = this.props;
     const activeExample = examples.find(({address}) => address === newValue);
-    const color = activeExample && activeExample.color || '';
+    let color = activeExample && activeExample.color || defaultColor;
+
+    if (!newValue) {
+      color = '';
+    }
 
     onChange({value: newValue, color});
 
@@ -84,6 +88,7 @@ export default class ExampleSelect extends Component {
         <Toggle checked={Boolean(value)}
           onChange={() => {
             this.setState({value: ''});
+            this.props.onChange({value: '', color: ''});
           }}/>
         <Autosuggest
           suggestions={suggestions}

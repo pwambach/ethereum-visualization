@@ -14,20 +14,14 @@ export const MENU_OPTIONS = {
   toAddress: '',
   toColor: ''
 };
-
-export const FROM_EXAMPLES = [
-  {
-    name: 'CryptoKittiesCore',
-    address: '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0',
-    color: 'lightblue'
-  }
-];
-
+export const FROM_DEFAULT_COLOR = '#FFF491';
+export const TO_DEFAULT_COLOR = '#46d3f5';
+export const FROM_EXAMPLES = [];
 export const TO_EXAMPLES = [
   {
     name: 'EOS - EOS.IO',
-    address: '0x06012c8cf97bead5deae237070f9587f8e7a266d',
-    color: '#03e6f7'
+    address: '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0',
+    color: '#7903f7'
   },
   {
     name: 'MANA - Decentraland',
@@ -42,6 +36,11 @@ export const TO_EXAMPLES = [
   {
     name: 'ZRX - 0xProject',
     address: '0xe41d2489571d322189246dafa5ebde1f4699f498',
-    color: '#0cf929'
+    color: '#a7fb40'
+  },
+  {
+    name: 'CryptoKittiesCore',
+    address: '0x06012c8cf97bead5deae237070f9587f8e7a266d',
+    color: '#fbe734'
   }
 ];

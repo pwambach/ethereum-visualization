@@ -20,7 +20,8 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "now-start": "node server/server.js"
+    "now-start": "node server/server.js",
+    "deploy": "npm run build && cd build && now --static --name etherview-frontend"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
