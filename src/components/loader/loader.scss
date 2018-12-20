@@ -1,0 +1,10 @@
+.loader {
+  padding: 10px;
+  display: flex;
+
+  &__rect {
+    width: 20px;
+    height: 20px;
+    background: black;
+  }
+}
